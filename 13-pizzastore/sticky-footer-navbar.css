@@ -24,7 +24,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  padding: 60px 15px 0;
+  padding: 0px 15px 0;
 }
 
 .footer > .container {
@@ -36,22 +36,5 @@ code {
   font-size: 80%;
 }
 
-.conjugate {
-  margin-left: 25em; 
-}
 
-.infinitif {
-margin-left: 25em;
-}
-
-table {
-  margin-left: 25em
-}
-
-.form-control {
-
-  border: 2px solid #ced4da;
-  line-height : 3.5; 
-  
-  }
 

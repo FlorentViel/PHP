@@ -46,8 +46,17 @@ function conjugate($verb)
         "Ils, Elles" => 'ent'
     ]; 
 
-    if (in_array(substr($verb, 0 , 2), $vowels)){
+
+
+
+    if (in_array(substr($verb, 0 , 1), $vowels)){
         unset($subjects['Je']);
+    }
+
+    
+    if (in_array(substr($verb, 0 , 2), $vowels)){
+        unset($subjects['Je']); 
+
     }
 
     if (substr($root, -1) === 'c'){
@@ -63,7 +72,7 @@ function conjugate($verb)
             unset($subjects['Je']);
         }
     
-        elseif(substr($root, -1) === 'c') {
+        else{
             unset($subjects['J\'']);
         }
 
@@ -71,15 +80,17 @@ function conjugate($verb)
 
 
     }
-    if (in_array(substr($verb, 0 , 1), $vowels)){
-        unset($subjects['Je']);
-    }
-
-
 
     else {
         unset($subjects['J\'']);
     }
+
+
+
+
+
+
+
 
     if ($verb == 'aller') {
 

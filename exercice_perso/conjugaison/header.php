@@ -20,7 +20,10 @@
 
   
   <body>
-
+  <?php 
+        // Si REQUEST_URL vaut /home/toto/fichier.php, $page reverra fichier
+        $page = basename ($_SERVER['REQUEST_URI'], '.php'); 
+        ?>
     <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -30,14 +33,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item <?php echo ($page == 'index') ? 'active' : ''; ?>">
               <a class="nav-link" href="http://localhost/php/exercice_perso/index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php echo ($page == 'premier_groupe') ? 'active' : ''; ?>">
               <a class="nav-link" href="http://localhost/php/exercice_perso/conjugaison/premier_groupe.php">Premier groupe</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/php/exercice_perso/conjugaison/deuxi%C3%A8me_groupe.php">Deuxième groupe</a>
+            <li class="nav-item <?php echo ($page == 'deuxieme_groupe') ? 'active' : ''; ?>">
+              <a class="nav-link" href="http://localhost/php/exercice_perso/conjugaison/deuxieme_groupe.php">Deuxième groupe</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://localhost/php/exercice_perso/conjugaison/contact.php">Contact</a>
