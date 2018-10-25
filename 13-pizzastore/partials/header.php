@@ -30,7 +30,7 @@ var_dump($db);
 
      echo $siteName. '- Notre pizzeria en ligne';  
     } else {
-        echo $currentPageTitle . ' - ' . $siteName;
+        echo $siteName . ' - ' . $currentPageTitle;
     } ?>
     </title>
 
@@ -58,7 +58,7 @@ var_dump($db);
 
      echo $siteName. '- Notre pizzeria en ligne';  
     } else {
-        echo $currentPageTitle . ' - ' . $siteName;
+        echo  $siteName . ' - ' . $currentPageTitle ;
     } ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

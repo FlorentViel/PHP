@@ -16,6 +16,6 @@ $siteName = 'Pizza Store';
 //$currentPageTitle = 
 //(!empty($currentPageTitle))? null :
 //$currentPageTitle;
-$currentPageURL = basename ($_SERVER['REQUEST_URI'], '.php'); 
+$currentPageURL = basename ($_SERVER['SCRIPT_FILENAME'], '.php'); 
 
 ?>

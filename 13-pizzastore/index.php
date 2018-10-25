@@ -6,7 +6,7 @@ $currentPageTitle = null;
 <br/>
 
 <main role="main" class="container">
-	<h1 class="mt-5">Accueil</h1>
+	<h1 class="mt-5">Mon pizzza store</h1>
 
 
 
