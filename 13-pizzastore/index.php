@@ -8,10 +8,9 @@ $currentPageTitle = null;
 <main role="main" class="container">
 	<h1 class="mt-5">Accueil</h1>
 
-      <?php  ?>
 
 
-<?php include(__DIR__.'/partials/footer.php'); ?>
+<?php require_once(__DIR__.'/partials/footer.php'); ?>
 
 
 

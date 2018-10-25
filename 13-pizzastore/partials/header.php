@@ -1,5 +1,11 @@
 <?php
+
+// Inclusion function 
+
+require_once(__DIR__.'/../config/function.php');
+
 // Inclusion du fichier config
+
 require_once(__DIR__.'/../config/config.php');
 
 // Inclusion du fichier database
@@ -16,7 +22,8 @@ var_dump($db);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" media="print" href="assets/css/style.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 
     <title><?php 
     if(empty($currentPageTitle)){ // Si on est sur la page d'accueil
@@ -46,7 +53,13 @@ var_dump($db);
      <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="http://localhost/php/exercice_perso/index.php">Mon site de conjugaison</a>
+        <a class="navbar-brand" href="#"><?php 
+    if(empty($currentPageTitle)){ // Si on est sur la page d'accueil
+
+     echo $siteName. '- Notre pizzeria en ligne';  
+    } else {
+        echo $currentPageTitle . ' - ' . $siteName;
+    } ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

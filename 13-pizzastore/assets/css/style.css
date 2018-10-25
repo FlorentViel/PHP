@@ -1,3 +1,90 @@
-mt-5, .my-5 {
-    margin-top: 0rem!important
+body {
+    font-family: 'Satisfy', cursive;
 }
+
+h5 {
+    margin-left: 1rem;
+}
+
+
+.page-title{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e8e8e8;
+    padding-bottom: 15px;
+}
+
+.card-img-top-px {
+    height: 180px;
+    width: 260px;
+}
+
+.card-img-top-container{
+    overflow:hidden;
+}
+
+.card-img-zoom-effect { 
+    transition: all .2s ease-in-out; 
+}
+
+.card-img-zoom-effect:hover {
+    cursor: pointer;
+    transform: scale(1.1); 
+    }
+
+
+
+.card-price {
+    height: 31px;
+    margin-right: 1em;
+    background-color: #B73C3C;
+    color: #eee;
+    width: 36%;
+    border-radius: 98px 1px 102px;
+    box-shadow: 2px 2px 1px 1px rgba(255,255,255,0.30);
+    margin-top: 9px;
+    text-align: center;
+    position: relative;
+    top: -50px;
+    left: 80px;
+    padding: 4px;
+    font-size: 20px;
+}
+
+.card-price-cents{
+    font-size: 16px;
+}
+
+.bg-dark {
+    background-color: #B73C3D!important;
+}
+
+@media (min-width: 767px)
+{
+    .card-price{
+        left: 30px;
+
+    }
+
+}
+
+@media (max-width: 2550px){
+
+
+.card-price {
+    left: 5rem;
+}
+
+}
+
+@media (max-width: 1192px){
+
+
+    .card-price {
+        left: 2.1rem;
+    }
+    
+    }
+    
+
+
