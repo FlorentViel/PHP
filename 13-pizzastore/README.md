@@ -26,3 +26,7 @@ Ajout d'une pizza pizza_add.php
     - Image :
     - Description :
     - Catégorie
+- Faire le traitement du formilaire (vérifier les donnés)
+- Ajouter la pizza dans la base de données 
+- Modifier la base de données pour ajouter le champ description et catégorie dans la table pizza
+- Ajouter la pizza dans la base avec une requête
