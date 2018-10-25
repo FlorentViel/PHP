@@ -13,3 +13,16 @@ Au niveau du php, on va créer quelques fichiers / dossiers :
 
 Au niveau du front
 - assets/ --> Dossier qui contiendra le site le css, le js , les images 
+
+
+Ajout d'une pizza pizza_add.php
+
+- Créer la page pizza_add.php(Permettra d'ajouter une pizza côté administrateur)
+- Ne pas oublier le header et le footer
+- Ajouer un titre "Ajouter une pizza" 
+- Ajouter un formulaire avec les champs suivants : 
+    - Nom : 
+    - Prix :
+    - Image :
+    - Description :
+    - Catégorie

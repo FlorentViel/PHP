@@ -1,0 +1,312 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le :  jeu. 25 oct. 2018 à 17:20
+-- Version du serveur :  10.1.26-MariaDB
+-- Version de PHP :  7.1.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `pizzastore`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `address`
+--
+
+CREATE TABLE `address` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `zip` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `address`
+--
+
+INSERT INTO `address` (`id`, `name`, `address`, `zip`, `city`, `phone`, `user_id`) VALUES
+(1, 'maison', '7, rue Gouin de Beauchesne', '97410 ', 'SAINT-PIERRE', '02.37.94.46.75', 1),
+(2, 'maison', '52, rue de l\'Epeule', '76100', 'ROUEN', '02.69.45.95.01', 2),
+(3, 'travail ', '20, rue Goya', '97410 ', 'SAINT-PIERRE', '02.37.94.46.75', 1),
+(4, 'travail', '44, Rue Marie De Médicis', '59400', 'CAMBRAI', '03.00.97.68.21', 3),
+(5, 'maison ', '67, Avenue des Pr\'es', '57158', 'MONTIGNY-LÈS-METZ', '03.72.08.87.06', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `ordered_at` datetime DEFAULT NULL,
+  `reference` varchar(45) DEFAULT NULL,
+  `address_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `id` int(11) NOT NULL,
+  `pizza_name` varchar(45) DEFAULT NULL,
+  `pizza_price` decimal(11,2) DEFAULT NULL,
+  `pizza_size` varchar(45) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `order_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pizza`
+--
+
+CREATE TABLE `pizza` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `price` decimal(11,2) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `pizza`
+--
+
+INSERT INTO `pizza` (`id`, `name`, `price`, `image`) VALUES
+(1, 'Reine', '10.00', 'assets/img/pizzas/reine.png'),
+(2, 'Texan', '10.00', 'assets/img/pizzas/texan.png'),
+(3, '4 fromages', '15.00', 'assets/img/pizzas/4-fromages.png'),
+(4, 'Savoyard', '13.00', 'assets/img/pizzas/savoyard.png'),
+(5, 'Bolognaise', '10.00', 'assets/img/pizzas/bolognaise.png'),
+(6, 'Cannibale', '15.00', 'assets/img/pizzas/cannibale.png'),
+(7, 'Végétarienne', '10.00', 'assets/img/pizzas/vege.png');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pizza_has_size`
+--
+
+CREATE TABLE `pizza_has_size` (
+  `pizza_id` int(11) NOT NULL,
+  `size_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `pizza_has_size`
+--
+
+INSERT INTO `pizza_has_size` (`pizza_id`, `size_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 1),
+(2, 2),
+(2, 3),
+(3, 2),
+(3, 3),
+(3, 4),
+(5, 1),
+(5, 3),
+(5, 4),
+(6, 1),
+(6, 2),
+(6, 3),
+(6, 4),
+(7, 1),
+(7, 2),
+(7, 3),
+(7, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `size`
+--
+
+CREATE TABLE `size` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `price` decimal(11,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `size`
+--
+
+INSERT INTO `size` (`id`, `name`, `price`) VALUES
+(1, 'S', '0.00'),
+(2, 'M', '0.95'),
+(3, 'L', '1.99'),
+(4, 'XL', '2.99');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `firstname` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `firstname`) VALUES
+(1, 'Zetta', 'Ryan'),
+(2, 'Chappell', 'Angélil'),
+(3, 'Valérie', 'Charpentier'),
+(4, 'Nicolette', 'Nicolette '),
+(5, 'Jessamine', 'Fouquet');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`,`user_id`),
+  ADD KEY `fk_address_user1_idx` (`user_id`);
+
+--
+-- Index pour la table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`,`address_id`),
+  ADD KEY `fk_order_address1_idx` (`address_id`);
+
+--
+-- Index pour la table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`id`,`order_id`),
+  ADD KEY `fk_order_detail_order1_idx` (`order_id`);
+
+--
+-- Index pour la table `pizza`
+--
+ALTER TABLE `pizza`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `pizza_has_size`
+--
+ALTER TABLE `pizza_has_size`
+  ADD PRIMARY KEY (`pizza_id`,`size_id`),
+  ADD KEY `fk_pizza_has_size_size1_idx` (`size_id`),
+  ADD KEY `fk_pizza_has_size_pizza_idx` (`pizza_id`);
+
+--
+-- Index pour la table `size`
+--
+ALTER TABLE `size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `address`
+--
+ALTER TABLE `address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `pizza`
+--
+ALTER TABLE `pizza`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `size`
+--
+ALTER TABLE `size`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `address`
+--
+ALTER TABLE `address`
+  ADD CONSTRAINT `fk_address_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `fk_order_address1` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `fk_order_detail_order1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `pizza_has_size`
+--
+ALTER TABLE `pizza_has_size`
+  ADD CONSTRAINT `fk_pizza_has_size_pizza` FOREIGN KEY (`pizza_id`) REFERENCES `pizza` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pizza_has_size_size1` FOREIGN KEY (`size_id`) REFERENCES `size` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
