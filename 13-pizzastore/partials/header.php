@@ -71,7 +71,7 @@ var_dump($db);
             <li class="nav-item  <?php echo ($currentPageURL == 'pizza_list') ? 'active' : ''; ?>">
               <a class="nav-link" href="pizza_list.php">Liste des pizzas</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php echo ($currentPageURL == 'pizza_add') ? 'active' : ''; ?>">
               <a class="nav-link" href="pizza_add.php">Ajoutez une pizzas</a>
             </li>   
           </ul>   

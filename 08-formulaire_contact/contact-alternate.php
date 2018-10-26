@@ -19,42 +19,46 @@
 $email = null;
 $objet = null;
 $message = null;
-$isValid = true
 $errors = [];
+
+if (!empty($_POST)) { // Récupére les informations saisies dans le formulaire
+
 
     $email = $_POST['Email'];
     $objet = $_POST['Objet'];
     $message = $_POST['Message'];
 
-        if (empty($email)){
-            $errors['email'] = 'L\'email est vide' . '</br>';
-            exit('Cet email est vide. </br>');
-        }
+    if (empty($email)){
+        $errors['email'] = 'L\'email est vide' . '</br>';
+        exit('Cet email est vide. </br>');
+    }
 
 
-        if (false == filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[''] = 'Cet email n\'est pas valide' . '</br>';
-            exit('Cet email n\'est pas valide');
-        }
-        
-
-
-
-        if(strlen($objet) == 0){
-            $isValid == false;
-            exit ("L'objet est vide ");
-        }
-
-        if(strlen($message) <= 15) {
-            $isValid == false;
-            exit ("15 caractères minimum ");
-        }
-
+    if (false == filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[''] = 'Cet email n\'est pas valide' . '</br>';
+        exit('Cet email n\'est pas valide');
+    }
     
 
-            if($isValid){
-        echo 'Envoie du mail';
-        }
+
+
+    if(strlen($objet) == 0){
+        $isValid == false;
+        exit ("L'objet est vide ");
+    }
+
+    if(strlen($message) <= 15) {
+        $isValid == false;
+        exit ("15 caractères minimum ");
+    }
+
+   
+
+        if($isValid){
+    echo 'Envoie du mail';
+    }
+
+}
 
 
 ?>
