@@ -70,7 +70,11 @@ var_dump($db);
             </li>
             <li class="nav-item  <?php echo ($currentPageURL == 'pizza_list') ? 'active' : ''; ?>">
               <a class="nav-link" href="pizza_list.php">Liste des pizzas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pizza_add.php">Ajoutez une pizzas</a>
             </li>   
+          </ul>   
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
