@@ -53,7 +53,7 @@ var_dump($db);
      <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#"><?php 
+        <a class="navbar-brand" href="index.php"><?php 
     if(empty($currentPageTitle)){ // Si on est sur la page d'accueil
 
      echo $siteName. '- Notre pizzeria en ligne';  
@@ -72,7 +72,7 @@ var_dump($db);
               <a class="nav-link" href="pizza_list.php">Liste des pizzas</a>
             </li>
             <li class="nav-item <?php echo ($currentPageURL == 'pizza_add') ? 'active' : ''; ?>">
-              <a class="nav-link" href="pizza_add.php">Ajoutez une pizzas</a>
+              <a class="nav-link" href="pizza_add.php">Ajouter une pizzas</a>
             </li>   
           </ul>   
           </ul>

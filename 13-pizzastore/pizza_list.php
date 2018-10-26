@@ -39,6 +39,7 @@ $explodePrice = explode(',', $price);
 				</figure>
 				</div>
 					<h5><?php echo $pizza['name']; ?></h5>
+					<p><?php echo $pizza['description']; ?></p>
 					<div class="card-body">
 					<?php echo '<a href="pizza_single.php?id='.$pizza['id'].'"  class="btn btn-danger">Commandez</a>' ?>
 				</div>
