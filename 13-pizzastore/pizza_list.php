@@ -28,7 +28,7 @@ $explodePrice = explode(',', $price);
 	<div class="row">
 	<?php 
 	// On affiche les pizzas
-	foreach ($pizzas as $pizza ){?>
+	foreach ($pizzas as $pizza){?>
 
 		<div class="col-md-3">
 			<div class="card mb-4">
@@ -45,8 +45,6 @@ $explodePrice = explode(',', $price);
 				</div>
 			</div>
 		</div>
-	
-
 	<?php } ?>
 	</div>
 </main>
